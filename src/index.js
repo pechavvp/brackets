@@ -6,7 +6,6 @@ module.exports = function check(str, bracketsConfig) {
     if (str.includes(oneItem)) {
       count +=1;
       let index = str.indexOf(oneItem);
-      console.log(index);
       let str1 = str.slice(0, index);
       let str2 = str.slice(index+2);
       str = str1+str2
@@ -14,12 +13,21 @@ module.exports = function check(str, bracketsConfig) {
     }
   }
   if (count == 0) {
+    console.log(false);
     return false;
-  } else if (str.length == 1) {
-    return false;
-  } else if (str.length == 0) {
-    return true;
-  } else {
-    check(str, bracketsConfig);
   }
+  
+  if (str.length == 1) {
+    console.log(false);
+    return false;
+  } 
+  
+  if (str.length == 0) {
+    console.log(true);
+    return true;
+  } 
+  console.log("again");
+  count = 0;
+  check(str, bracketsConfig);
+  
 }
